@@ -8,9 +8,9 @@ using Codedenim.Web.Models;
 
 namespace Codedenim.Web.Data
 {
-    public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
+    public class CodedenimContext : IdentityDbContext<ApplicationUser>
     {
-        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
+        public CodedenimContext(DbContextOptions<CodedenimContext> options)
             : base(options)
         {
         }
