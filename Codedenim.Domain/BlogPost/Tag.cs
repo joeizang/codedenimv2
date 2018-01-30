@@ -12,6 +12,9 @@ namespace Codedenim.Domain.BlogPost
 
         [Key]
         public int TagId { get; set; }
+
+        [StringLength(50)]
+        [Required]
         public string Name { get; set; }
 
         public virtual ICollection<Post> Posts { get; set; }

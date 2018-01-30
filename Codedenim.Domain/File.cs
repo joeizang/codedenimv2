@@ -4,9 +4,13 @@ namespace Codedenim.Domain
 {
     public class File
     {
+        [Key]
         public int FileId { get; set; }
+
         [StringLength(355)]
+        [Required]
         public string FileName { get; set; }
+
         [StringLength(100)]
         public string ContentType { get; set; }
         public byte[] Content { get; set; }

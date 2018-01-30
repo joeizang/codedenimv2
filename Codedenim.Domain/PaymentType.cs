@@ -10,7 +10,14 @@ namespace Codedenim.Domain
         [DataType(DataType.Text)]
         [StringLength(100)]
         public string PaymentName { get; set; }
-        public int Amount { get; set; }
+
+        [Required]
+        [DataType(DataType.Currency)]
+        [Range(typeof(decimal), "9.99","99999.99")]
+        public decimal Amount { get; set; }
+
+        [StringLength(50)]
+        [Required]
         public string PaymentTypeValue { get; set; }
     }
 }

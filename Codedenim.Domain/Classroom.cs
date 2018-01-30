@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Codedenim.Domain.Quiz;
 using Microsoft.AspNetCore.Http;
@@ -8,11 +9,21 @@ namespace Codedenim.Domain
 {
     public class TopicAssignment
     {
+        [Key]
         public int TopicAssignmentId { get; set; }
         public int TopicId { get; set; }
+
+        [StringLength(100)]
+        [Required]
+        [DataType(DataType.Text)]
         public string AssignmentTitle { get; set; }
+
+        [DataType(DataType.MultilineText)]
+        [StringLength(300)]
         public string AssignmentDescription { get; set; }
-        public DateTime? AssignmentDueDate { get; set; }
+
+        [DataType(DataType.DateTime)]
+        public DateTimeOffset? AssignmentDueDate { get; set; }
         public virtual Topic Topic { get; set; }
     }
 

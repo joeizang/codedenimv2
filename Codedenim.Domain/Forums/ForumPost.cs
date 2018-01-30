@@ -42,7 +42,7 @@ namespace Codedenim.Domain.Forums
         public string AuthorName { get; set; }
 
         [DataType(DataType.DateTime)]
-        public DateTime PostedDate { get; set; }
+        public DateTimeOffset PostedDate { get; set; }
 
         [StringLength(50)]
         public string UserName { get; set; }

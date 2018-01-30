@@ -9,8 +9,11 @@ namespace Codedenim.Domain
 {
     public class FilePath
     {
+        [Key]
         public int FilePathId { get; set; }
-        [StringLength(255)]
+
+        [StringLength(300)]
+        [Required]
         public string FileName { get; set; }
         public FileType FileType { get; set; }
         public int TutorId { get; set; }

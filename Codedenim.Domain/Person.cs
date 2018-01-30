@@ -35,23 +35,25 @@ namespace Codedenim.Domain
         public string PhoneNumber { get; set; }
 
         [Display(Name = "Town Of Birth")]
+        [StringLength(50)]
         public string TownOfBirth { get; set; }
 
         [Display(Name = "State of Origin")]
+        [StringLength(50)]
         public string StateOfOrigin { get; set; }
 
         [Display(Name = "Nationality")]
         public string Nationality { get; set; }
 
         [Display(Name = "Country of Birth")]
+        [StringLength(50)]
         public string CountryOfBirth { get; set; }
 
         public bool IsAcctive { get; set; }
 
         [Display(Name = "Date Of Birth")]
-        //[DataType(DataType.Date)]
-        // [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MMM/yyyy}")]
-        public DateTime? DateOfBirth { get; set; }
+        [DataType(DataType.DateTime)]
+        public DateTimeOffset? DateOfBirth { get; set; }
 
         public int? Age
         {

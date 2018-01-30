@@ -12,17 +12,31 @@ namespace Codedenim.Domain
 {
     public class Course
     {
+        [Key]
         public int CourseId { get; set; }
         //public int CourseCategoryId { get; set; }
+        [StringLength(10)]
+        [Required]
         public string CourseCode { get; set; }
+
+        [Required]
+        [StringLength(300)]
+        [DataType(DataType.Text)]
         public string CourseName { get; set; }
+
+        [StringLength(300)]
+        [DataType(DataType.MultilineText)]
         public string CourseDescription { get; set; }
         //public string CoursePrice { get; set; }
         public int ExpectedTime { get; set; }
-        public DateTime? DateAdded { get; set; }
+
+        [DataType(DataType.DateTime)]
+        public DateTimeOffset? DateAdded { get; set; }
 
         public int Points { get; set; }
         public byte[] CourseImage { get; set; }
+
+        [StringLength(300)]
         public string FileLocation { get; set; }
 
         [Display(Name = "Upload A Passport/Picture")]

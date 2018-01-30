@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using Codedenim.Domain.CBTE;
 using Codedenim.Domain.Quiz;
 
@@ -6,6 +7,7 @@ namespace Codedenim.Domain
 {
     public class Module
     {
+        [Key]
         public int ModuleId { get; set; }
         public int CourseId { get; set; }
         public string ModuleName { get; set; }

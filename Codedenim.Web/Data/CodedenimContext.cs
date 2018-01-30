@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Codedenim.Domain;
+using Codedenim.Domain.BlogPost;
 using Codedenim.Domain.CBTE;
 using Codedenim.Domain.Forums;
 using Codedenim.Domain.Quiz;
@@ -57,14 +58,9 @@ namespace Codedenim.Web.Data
         public DbSet<ForumAnswer> ForumAnswers { get; set; }
 
         public DbSet<CourseRating> CourseRatings { get; set; }
-
-        //public DbSet<CodedenimWebApp.ViewModels.RegularStudentVm> RegularStudentVms { get; set; }
-
         
         public DbSet<PaymentType> PaymentTypes { get; set; }
-        //public DbSet<ProfessionalPayment> ProfessionalPayments { get; set; }
 
-        //public DbSet<CodedenimWebApp.ViewModels.UserCourseDetail> UserCourseDetails { get; set; }
         public DbSet<CorperEnrolledCourses> CorperEnrolledCourses { get; set; }
 
         public DbSet<AssignCourseCategory> AssignCourseCategories { get; set; }
@@ -81,6 +77,9 @@ namespace Codedenim.Web.Data
             // Customize the ASP.NET Identity model and override the defaults if needed.
             // For example, you can rename the ASP.NET Identity table names and more.
             // Add your customizations after calling base.OnModelCreating(builder);
+
+            builder.Entity<Post>()
+                .HasMany(p => p.Tags);
         }
 
 

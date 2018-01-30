@@ -1,8 +1,10 @@
-﻿namespace Codedenim.Domain
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace Codedenim.Domain
 {
     public class AssignCourseCategory
     {
-
+        [Key]
         public int AssignCourseCategoryId { get; set; }
         public int CourseId { get; set; }
         public int CourseCategoryId { get; set; }

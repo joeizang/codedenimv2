@@ -12,29 +12,36 @@ namespace Codedenim.Domain
         [Key]
         public string StudentId { get; set; }
 
-        //[Index(IsUnique = true)]
-        //[MaxLength(35)]
+        [StringLength(50)]
         public string MatricNo { get; set; }
 
-        //[Index(IsUnique = true)]
-        //[MaxLength(15)]
+        [StringLength(50)]
         public string CallUpNo { get; set; }
 
-        // [DataType(DataType.Date)]
-        // [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        [DataType(DataType.Date)]
         [Display(Name = "Enrollment Date")]
-        public DateTime? EnrollmentDate { get; set; }
-
-        // public string GuardianEmail { get; set; }
+        public DateTimeOffset EnrollmentDate { get; set; }
 
         public bool Active { get; set; }
+
+        [StringLength(5)]
         public string Title { get; set; }
+
+        [StringLength(15)]
         public string AccountType { get; set; }
 
         public bool IsGraduated { get; set; }
+
+        [StringLength(50)]
         public string Institution { get; set; }
+
+        [StringLength(50)]
         public string StateOfService { get; set; }
+
+        [StringLength(30)]
         public string Batch { get; set; }
+
+        [StringLength(50)]
         public string Discpline { get; set; }
         
 
