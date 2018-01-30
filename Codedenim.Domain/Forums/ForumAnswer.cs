@@ -1,10 +1,12 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace Codedenim.Domain.Forums
 {
     public class ForumAnswer
     {
+        [Key]
         public int ForumAnswerId { get; set; }
         public string Answer { get; set; }
         public DateTime ReplyDate { get; set; }
@@ -16,6 +18,7 @@ namespace Codedenim.Domain.Forums
 
     public class VoteForumAnswer
     {
+        [Key]
         public int VoteForumAnswerId { get; set; }
         public int ForumAnswerId { get; set; }
         public Vote Vote { get; set; }

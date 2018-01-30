@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace Codedenim.Domain.BlogPost
 {
@@ -9,6 +10,7 @@ namespace Codedenim.Domain.BlogPost
             Posts = new HashSet<Post>();
         }
 
+        [Key]
         public int TagId { get; set; }
         public string Name { get; set; }
 

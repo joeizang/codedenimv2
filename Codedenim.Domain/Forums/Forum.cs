@@ -9,11 +9,23 @@ namespace Codedenim.Domain.Forums
     {
         [Key,ForeignKey("Course")]
         public int CourseId { get; set; }
+
+        [DataType(DataType.Text)]
+        [StringLength(300)]
+        [Required]
+        [Display(Name = "Forum Name")]
         public string ForumName { get; set; }
+
+        [DataType(DataType.Text)]
+        [StringLength(200)]
         public string Description { get; set; }
-      
+        
+        [DataType(DataType.DateTime)]
+        [Display(Name = "Last Posted")]
         public DateTime LastPosted { get; set; }
- 
+        
+        [DataType(DataType.DateTime)]
+        [Display(Name = "Creation Date")]
         public DateTime CreationDate { get; set; }
 
         public virtual Course Course { get; set; }

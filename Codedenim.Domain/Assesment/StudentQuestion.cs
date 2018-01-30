@@ -1,9 +1,11 @@
-﻿using Codedenim.Domain.Quiz;
+﻿using System.ComponentModel.DataAnnotations;
+using Codedenim.Domain.Quiz;
 
 namespace Codedenim.Domain.Assesment
 {
     public class StudentQuestion
     {
+        [Key]
         public int StudentQuestionId { get; set; }
         public string StudentId { get; set; }
         public int TopicId { get; set; }

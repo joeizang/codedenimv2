@@ -1,9 +1,11 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace Codedenim.Domain.BlogPost
 {
     public class Comment
     {
+        [Key]
         public int CommentId { get; set; }
         public int PostId { get; set; }
         public DateTime DateTime { get; set; }

@@ -4,6 +4,7 @@ namespace Codedenim.Domain.Assesment
 {
     public class AssesmentQuestionAnswer
     {
+        [Key]
         public int AssesmentQuestionAnswerId { get; set; }
 
         [Display(Name = "Course Name")]

@@ -1,7 +1,10 @@
-﻿namespace Codedenim.Domain.Assesment
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace Codedenim.Domain.Assesment
 {
     public class StudentAssesment
     {
+        [Key]
         public int StudentAssesmentId { get; set; }
         public int CousreId { get; set; }
         public double TotalScore { get; set; }

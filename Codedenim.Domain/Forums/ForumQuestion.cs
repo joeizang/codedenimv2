@@ -10,9 +10,21 @@ namespace Codedenim.Domain.Forums
 {
     public class ForumQuestion
     {
-        //public int ForumQuestionId { get; set; }
+        [Key]
+        public int ForumQuestionId { get; set; }
+
+        [StringLength(200)]
+        [DataType(DataType.Text)]
+        [Required]
         public string Title { get; set; }
+
+        [StringLength(200)]
+        [DataType(DataType.Text)]
+        [Required]
         public string QuestionName { get; set; }
+
+        [DataType(DataType.DateTime)]
+        [Display(Name = "Post Data")]
         public DateTime PostDate { get; set; }
         public int CourseId { get; set; }
         public string StudentId { get; set; }

@@ -4,6 +4,7 @@ namespace Codedenim.Domain.CBTE
 {
     public class QuizRule
     {
+        [Key]
         public int QuizRuleId { get; set; }
 
         public int TopicId { get; set; }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using Codedenim.Domain.Quiz;
 
 namespace Codedenim.Domain.BlogPost
@@ -12,6 +13,7 @@ namespace Codedenim.Domain.BlogPost
             Tags = new HashSet<Tag>();
         }
 
+        [Key]
         public int PostId { get; set; }
         public string Title { get; set; }
         public DateTime DateTime { get; set; }

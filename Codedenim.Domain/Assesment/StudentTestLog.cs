@@ -1,9 +1,11 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace Codedenim.Domain.CBTE
 {
     public class StudentTestLog
     {
+        [Key]
         public int StudentTestLogId { get; set; }
         public string StudentId { get; set; }
     

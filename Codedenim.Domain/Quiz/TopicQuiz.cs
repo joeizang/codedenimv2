@@ -4,7 +4,7 @@ namespace Codedenim.Domain.Quiz
 {
     public class TopicQuiz
     {
-     
+        [Key]
         public int TopicQuizId { get; set; }
 
 
@@ -48,6 +48,8 @@ namespace Codedenim.Domain.Quiz
 
         [Display(Name = "Question Hint")]
         public string QuestionHint { get; set; }
+
+        [StringLength(200)]
 
         public string QuestionType { get; set; }
 

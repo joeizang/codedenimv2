@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace Codedenim.Domain
 {
@@ -7,6 +8,7 @@ namespace Codedenim.Domain
     /// </summary>
     public class StudentPayment
     {
+        [Key]
         public int StudentPaymentId { get; set; }
         public string OrderId { get; set; }
         public int CourseCategoryId { get; set; }
@@ -14,13 +16,11 @@ namespace Codedenim.Domain
         public DateTime PaymentDateTime { get; set; }
         public decimal Amount { get; set; }
         public bool IsPayed { get; set; }
-        public object AmountPaid { get; set; }
+        public decimal AmountPaid { get; set; }
         public string ReferenceNo { get; set; }
 
         public string PaymentStatus { get; set; }
         public virtual Student Student { get; set; }
         public virtual CourseCategory CourseCategory { get; set; }
-
-
     }
 }
