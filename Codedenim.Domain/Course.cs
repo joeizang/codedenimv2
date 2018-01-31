@@ -99,7 +99,6 @@ namespace Codedenim.Domain
         public virtual ICollection<AssesmentQuestionAnswer> AssesmentQuestionAnswers { get; set; }
         public virtual ICollection<StudentAssignedCourse> StudentAssignedCourses {get;set;}
         public virtual Forum Forum { get; set; }
-        public virtual ICollection<CourseEnrollment> CourseEnrollments { get; set; }
         
     }
 }

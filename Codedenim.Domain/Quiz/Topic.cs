@@ -24,8 +24,6 @@ namespace Codedenim.Domain.Quiz
         public virtual ICollection<TopicAssignment> TopicAssignments { get; set; }
         public virtual ICollection<SubmitAssignment> SubmitAssignments { get; set; }
        
-        public virtual ICollection<QuizRule> QuizRules { get; set; }
-        public virtual ICollection<TopicQuiz> TopicQuizzes { get; set; }
         public virtual ICollection<StudentQuestion> StudentQuestions { get; set; }
     }
 }

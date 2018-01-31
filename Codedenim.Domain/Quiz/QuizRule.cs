@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using Codedenim.Domain.Quiz;
 
 namespace Codedenim.Domain.CBTE
 {
@@ -23,7 +24,7 @@ namespace Codedenim.Domain.CBTE
         [Required(ErrorMessage = "Maximum Exam Time is required")]
         public int MaximumTime { get; set; }
 
-        //public virtual Topic Topic { get; set; }
-        public virtual Module Module { get; set; }
+        public Topic Topic { get; set; }
+        public Module Module { get; set; }
     }
 }

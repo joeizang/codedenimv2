@@ -10,12 +10,13 @@ using Microsoft.EntityFrameworkCore.Storage;
 using Microsoft.EntityFrameworkCore.Storage.Internal;
 using System;
 
-namespace Codedenim.Web.Data.Migrations
+namespace Codedenim.Web.Migrations
 {
     [DbContext(typeof(CodedenimContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20180131223757_initialdb")]
+    partial class initialdb
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -383,35 +384,12 @@ namespace Codedenim.Web.Data.Migrations
                         .HasMaxLength(300);
 
                     b.Property<string>("StudentType")
+                        .IsRequired()
                         .HasMaxLength(50);
 
                     b.HasKey("CourseCategoryId");
 
                     b.ToTable("CourseCategories");
-                });
-
-            modelBuilder.Entity("Codedenim.Domain.CourseEnrollment", b =>
-                {
-                    b.Property<int>("CourseEnrollmentId")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<int>("CourseId");
-
-                    b.Property<bool>("HasEndCourse");
-
-                    b.Property<bool>("HasStartCourse");
-
-                    b.Property<int>("StudentId");
-
-                    b.Property<string>("StudentId1");
-
-                    b.HasKey("CourseEnrollmentId");
-
-                    b.HasIndex("CourseId");
-
-                    b.HasIndex("StudentId1");
-
-                    b.ToTable("CourseEnrollment");
                 });
 
             modelBuilder.Entity("Codedenim.Domain.CourseRating", b =>
@@ -432,54 +410,16 @@ namespace Codedenim.Web.Data.Migrations
                     b.ToTable("CourseRatings");
                 });
 
-            modelBuilder.Entity("Codedenim.Domain.EnrollForCourse", b =>
-                {
-                    b.Property<int>("EnrollForCourseId")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<int>("CourseCategoryId");
-
-                    b.Property<string>("StudentId");
-
-                    b.HasKey("EnrollForCourseId");
-
-                    b.HasIndex("CourseCategoryId");
-
-                    b.HasIndex("StudentId");
-
-                    b.ToTable("EnrollForCourses");
-                });
-
-            modelBuilder.Entity("Codedenim.Domain.Enrollment", b =>
-                {
-                    b.Property<int>("EnrollmentID")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<int>("CourseID");
-
-                    b.Property<int?>("Grade");
-
-                    b.Property<int>("StudentID");
-
-                    b.Property<string>("StudentId");
-
-                    b.HasKey("EnrollmentID");
-
-                    b.HasIndex("CourseID");
-
-                    b.HasIndex("StudentId");
-
-                    b.ToTable("Enrollments");
-                });
-
             modelBuilder.Entity("Codedenim.Domain.File", b =>
                 {
                     b.Property<int>("FileId")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<byte[]>("Content");
+                    b.Property<byte[]>("Content")
+                        .IsRequired();
 
                     b.Property<string>("ContentType")
+                        .IsRequired()
                         .HasMaxLength(100);
 
                     b.Property<string>("FileName")
@@ -646,6 +586,7 @@ namespace Codedenim.Web.Data.Migrations
                     b.Property<decimal>("Amount");
 
                     b.Property<string>("PaymentName")
+                        .IsRequired()
                         .HasMaxLength(100);
 
                     b.Property<string>("PaymentTypeValue")
@@ -836,26 +777,33 @@ namespace Codedenim.Web.Data.Migrations
                         .ValueGeneratedOnAdd();
 
                     b.Property<string>("Amount")
+                        .IsRequired()
                         .HasMaxLength(20);
 
                     b.Property<string>("OrderId")
+                        .IsRequired()
                         .HasMaxLength(50);
 
                     b.Property<string>("PayerName")
+                        .IsRequired()
                         .HasMaxLength(50);
 
                     b.Property<DateTimeOffset>("PaymentDate");
 
                     b.Property<string>("PaymentName")
+                        .IsRequired()
                         .HasMaxLength(50);
 
                     b.Property<string>("Rrr")
+                        .IsRequired()
                         .HasMaxLength(100);
 
                     b.Property<string>("StatusCode")
+                        .IsRequired()
                         .HasMaxLength(50);
 
                     b.Property<string>("TransactionMessage")
+                        .IsRequired()
                         .HasMaxLength(50);
 
                     b.HasKey("RemitaPaymentLogId");
@@ -1401,10 +1349,10 @@ namespace Codedenim.Web.Data.Migrations
                         .HasForeignKey("ModuleId")
                         .OnDelete(DeleteBehavior.Cascade);
 
-                    b.HasOne("Codedenim.Domain.Quiz.Topic")
-                        .WithMany("QuizRules")
+                    b.HasOne("Codedenim.Domain.Quiz.Topic", "Topic")
+                        .WithMany()
                         .HasForeignKey("TopicId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .OnDelete(DeleteBehavior.Restrict);
                 });
 
             modelBuilder.Entity("Codedenim.Domain.CBTE.StudentTestLog", b =>
@@ -1438,48 +1386,12 @@ namespace Codedenim.Web.Data.Migrations
                         .HasForeignKey("CorperEnrolledCoursesId");
                 });
 
-            modelBuilder.Entity("Codedenim.Domain.CourseEnrollment", b =>
-                {
-                    b.HasOne("Codedenim.Domain.Course", "Course")
-                        .WithMany("CourseEnrollments")
-                        .HasForeignKey("CourseId")
-                        .OnDelete(DeleteBehavior.Cascade);
-
-                    b.HasOne("Codedenim.Domain.Student", "Student")
-                        .WithMany("CourseEnrollement")
-                        .HasForeignKey("StudentId1");
-                });
-
             modelBuilder.Entity("Codedenim.Domain.CourseRating", b =>
                 {
                     b.HasOne("Codedenim.Domain.Course", "Course")
                         .WithMany()
                         .HasForeignKey("CourseId")
                         .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("Codedenim.Domain.EnrollForCourse", b =>
-                {
-                    b.HasOne("Codedenim.Domain.CourseCategory", "CourseCategory")
-                        .WithMany("EnrollForCourse")
-                        .HasForeignKey("CourseCategoryId")
-                        .OnDelete(DeleteBehavior.Cascade);
-
-                    b.HasOne("Codedenim.Domain.Student", "Student")
-                        .WithMany("EnrollForCourse")
-                        .HasForeignKey("StudentId");
-                });
-
-            modelBuilder.Entity("Codedenim.Domain.Enrollment", b =>
-                {
-                    b.HasOne("Codedenim.Domain.Course", "Course")
-                        .WithMany()
-                        .HasForeignKey("CourseID")
-                        .OnDelete(DeleteBehavior.Cascade);
-
-                    b.HasOne("Codedenim.Domain.Student", "Student")
-                        .WithMany("Enrollments")
-                        .HasForeignKey("StudentId");
                 });
 
             modelBuilder.Entity("Codedenim.Domain.File", b =>
@@ -1593,10 +1505,10 @@ namespace Codedenim.Web.Data.Migrations
                         .HasForeignKey("ModuleId")
                         .OnDelete(DeleteBehavior.Cascade);
 
-                    b.HasOne("Codedenim.Domain.Quiz.Topic")
-                        .WithMany("TopicQuizzes")
+                    b.HasOne("Codedenim.Domain.Quiz.Topic", "Topic")
+                        .WithMany()
                         .HasForeignKey("TopicId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .OnDelete(DeleteBehavior.Restrict);
                 });
 
             modelBuilder.Entity("Codedenim.Domain.StudentAssignedCourse", b =>

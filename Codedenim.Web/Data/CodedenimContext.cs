@@ -32,7 +32,6 @@ namespace Codedenim.Web.Data
         public DbSet<File> Files { get; set; }
 
         public DbSet<Tutor> Tutors { get; set; }
-        public DbSet<Enrollment> Enrollments { get; set; }
 
         public DbSet<Student> Students { get; set; }
 
@@ -68,8 +67,6 @@ namespace Codedenim.Web.Data
 
         public DbSet<RemitaPaymentLog> RemitaPaymentLogs { get; set; }
 
-        public DbSet<EnrollForCourse> EnrollForCourses { get; set; }
-
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
@@ -102,6 +99,15 @@ namespace Codedenim.Web.Data
                 .HasOne(fv => fv.VoteForumAnswer)
                 .WithMany(vf => vf.ForumAnswerVoteForumAnswers)
                 .HasForeignKey(fv => fv.VoteForumAnswerId);
+
+            builder.Entity<TopicQuiz>()
+                .HasOne(tq => tq.Topic).WithMany()
+                .IsRequired().HasForeignKey(t => t.TopicId).OnDelete(DeleteBehavior.Restrict);
+
+            builder.Entity<QuizRule>()
+                .HasOne(q => q.Topic)
+                .WithMany().IsRequired()
+                .HasForeignKey(q => q.TopicId).OnDelete(DeleteBehavior.Restrict);
         }
 
 

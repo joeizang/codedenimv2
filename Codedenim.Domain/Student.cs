@@ -44,10 +44,6 @@ namespace Codedenim.Domain
         [StringLength(50)]
         public string Discpline { get; set; }
         
-
-
-
-        public virtual ICollection<Enrollment> Enrollments { get; set; }
         //  public virtual ICollection<File> Files { get; set; }
 
         public virtual ICollection<SubmitAssignment> SubmitAssignments { get; set; }
@@ -56,8 +52,6 @@ namespace Codedenim.Domain
         public virtual ICollection<StudentAssesment> StudentAssesments { get; set; }
         public virtual ICollection<StudentAssignedCourse> AssignedCourses { get; set; }
         public virtual ICollection<ForumQuestion> ForumQuestions { get; set; }
-        public virtual ICollection<CourseEnrollment> CourseEnrollement { get; set; }
         public virtual ICollection<StudentPayment> StudentPayments { get; set; }
-        public virtual ICollection<EnrollForCourse> EnrollForCourse { get; set; }
     }
 }

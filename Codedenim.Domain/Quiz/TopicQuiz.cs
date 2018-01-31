@@ -95,7 +95,7 @@ namespace Codedenim.Domain.Quiz
         }
 
 
-        //public virtual Topic Topic { get; set; }
-        public virtual Module Module { get; set; }
+        public Topic Topic { get; set; }
+        public Module Module { get; set; }
     }
 }

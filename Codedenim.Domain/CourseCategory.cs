@@ -27,6 +27,5 @@ namespace Codedenim.Domain
         [StringLength(300)]
         public string ImageLocation { get; set; }
         public virtual ICollection<StudentPayment> StudentPayments { get; set; }
-        public virtual ICollection<EnrollForCourse> EnrollForCourse { get; set; }
        }
 }

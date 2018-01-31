@@ -5,6 +5,33 @@
     <UserSecretsId>aspnet-Codedenim.Web-CF0E7278-5F1F-4FD9-8435-046C63CF67B9</UserSecretsId>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Compile Remove="Data\Migrations\00000000000000_CreateIdentitySchema.cs" />
+    <Compile Remove="Data\Migrations\00000000000000_CreateIdentitySchema.Designer.cs" />
+    <Compile Remove="Data\Migrations\20180131145815_initialdb.cs" />
+    <Compile Remove="Data\Migrations\20180131145815_initialdb.Designer.cs" />
+    <Compile Remove="Migrations\20180131150041_initaildb.cs" />
+    <Compile Remove="Migrations\20180131150041_initaildb.Designer.cs" />
+    <Compile Remove="Migrations\20180131153733_seconddbversion.cs" />
+    <Compile Remove="Migrations\20180131153733_seconddbversion.Designer.cs" />
+    <Compile Remove="Migrations\20180131153922_initaildb.cs" />
+    <Compile Remove="Migrations\20180131153922_initaildb.Designer.cs" />
+    <Compile Remove="Migrations\20180131155801_initaildb.cs" />
+    <Compile Remove="Migrations\20180131155801_initaildb.Designer.cs" />
+    <Compile Remove="Migrations\20180131160239_initaildb.cs" />
+    <Compile Remove="Migrations\20180131160239_initaildb.Designer.cs" />
+    <Compile Remove="Migrations\20180131222105_initaildb.cs" />
+    <Compile Remove="Migrations\20180131222105_initaildb.Designer.cs" />
+    <Compile Remove="Migrations\20180131222722_initialdb.cs" />
+    <Compile Remove="Migrations\20180131222722_initialdb.Designer.cs" />
+    <Compile Remove="Migrations\20180131223135_initialdb.cs" />
+    <Compile Remove="Migrations\20180131223135_initialdb.Designer.cs" />
+    <Compile Remove="Migrations\20180131223302_initialdb.cs" />
+    <Compile Remove="Migrations\20180131223302_initialdb.Designer.cs" />
+    <Compile Remove="Migrations\20180131223550_initialdb.cs" />
+    <Compile Remove="Migrations\20180131223550_initialdb.Designer.cs" />
+  </ItemGroup>
+
 
   <ItemGroup>
     <PackageReference Include="AutoMapper" Version="6.2.2" />
@@ -24,6 +51,10 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Codedenim.Domain\Codedenim.Domain.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Data\Migrations\" />
   </ItemGroup>
 
 </Project>
