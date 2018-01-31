@@ -9,6 +9,7 @@ namespace Codedenim.Domain
         
         [DataType(DataType.Text)]
         [StringLength(100)]
+        [Required]
         public string PaymentName { get; set; }
 
         [Required]

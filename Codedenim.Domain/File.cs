@@ -12,7 +12,10 @@ namespace Codedenim.Domain
         public string FileName { get; set; }
 
         [StringLength(100)]
+        [Required]
         public string ContentType { get; set; }
+
+        [Required]
         public byte[] Content { get; set; }
         public FileType FileType { get; set; }
         public int TutorId { get; set; }

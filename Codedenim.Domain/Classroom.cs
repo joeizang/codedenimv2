@@ -29,7 +29,8 @@ namespace Codedenim.Domain
 
     public class SubmitAssignment
     {
-        //public int SubmitAssignmentId { get; set; }
+        [Key]
+        public int SubmitAssignmentId { get; set; }
         public int TopicId { get; set; }
         public string StudentId { get; set; }
         public string AssignmentBody { get; set; }
@@ -45,6 +46,7 @@ namespace Codedenim.Domain
 
     public class AssignmentReview
     {
+        [Key]
         public int AssignmentReviewId { get; set; }
         public int SubmitAssignmentId { get; set; }
         public string ReviewComment { get; set; }

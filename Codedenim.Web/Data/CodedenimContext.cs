@@ -81,6 +81,9 @@ namespace Codedenim.Web.Data
             builder.Entity<PostTags>()
                 .HasKey(k => new {k.PostId, k.TagId});
 
+            builder.Entity<ForumAnswerVoteForumAnswers>()
+                .HasKey(fv => new {fv.ForumAnswerId, fv.VoteForumAnswerId});
+
             builder.Entity<PostTags>()
                 .HasOne(pt => pt.Post)
                 .WithMany(p => p.PostTags)
@@ -90,6 +93,15 @@ namespace Codedenim.Web.Data
                 .HasOne(pt => pt.Tag)
                 .WithMany(t => t.PostTags)
                 .HasForeignKey(pt => pt.TagId);
+
+            builder.Entity<ForumAnswerVoteForumAnswers>()
+                .HasOne(fv => fv.ForumAnswer)
+                .WithMany(fa => fa.ForumAnswerVoteForumAnswers)
+                .HasForeignKey(fv => fv.ForumAnswerId);
+            builder.Entity<ForumAnswerVoteForumAnswers>()
+                .HasOne(fv => fv.VoteForumAnswer)
+                .WithMany(vf => vf.ForumAnswerVoteForumAnswers)
+                .HasForeignKey(fv => fv.VoteForumAnswerId);
         }
 
 

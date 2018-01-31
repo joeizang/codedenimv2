@@ -14,9 +14,11 @@ namespace Codedenim.Domain
         public string CategoryName { get; set; }
 
         [Range(typeof(decimal), "9.99","999999.99")]
+        [Required]
         public decimal Amount { get; set; }
 
         [StringLength(50)]
+        [Required]
         public string StudentType { get;set; }
 
         [StringLength(200)]

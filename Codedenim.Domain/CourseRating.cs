@@ -1,7 +1,10 @@
-﻿namespace Codedenim.Domain
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace Codedenim.Domain
 {
     public class CourseRating
     {
+        [Key]
         public int CourseRatingId { get; set; }
         public int CourseId { get; set; }
 

@@ -10,7 +10,7 @@ namespace Codedenim.Domain.BlogPost
         public Post()
         {
             Comments = new HashSet<Comment>();
-            Tags = new HashSet<Tag>();
+            PostTags = new HashSet<PostTags>();
         }
 
         [Key]

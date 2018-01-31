@@ -13,7 +13,7 @@ namespace Codedenim.Domain.Forums
         public int ForumQuestionId { get; set; }
         public string UserId { get; set; }
         public virtual ForumQuestion ForumQuestions { get; set; }
-        public virtual ICollection<VoteForumAnswer> VoteForumAnswers { get; set; }
+        public virtual ICollection<ForumAnswerVoteForumAnswers> ForumAnswerVoteForumAnswers { get; set; }
     }
 
     public class VoteForumAnswer
@@ -23,7 +23,19 @@ namespace Codedenim.Domain.Forums
         public int ForumAnswerId { get; set; }
         public Vote Vote { get; set; }
         public string UserId { get; set; }
-        public virtual ICollection<ForumAnswer> ForumAnswers { get; set; }
+        public virtual ICollection<ForumAnswerVoteForumAnswers> ForumAnswerVoteForumAnswers { get; set; }
+    }
+
+    public class ForumAnswerVoteForumAnswers
+    {
+        public int ForumAnswerId { get; set; }
+
+        public ForumAnswer ForumAnswer { get; set; }
+
+        public int VoteForumAnswerId { get; set; }
+
+        public VoteForumAnswer VoteForumAnswer { get; set; }
+
     }
 
     public enum Vote
