@@ -35,6 +35,6 @@ namespace Codedenim.Domain.BlogPost
         public virtual Topic Topic { get; set; }
         public virtual ICollection<Comment> Comments { get; set; }
 
-        public ICollection<Tag> Tags { get; set; }
+        public ICollection<PostTags> PostTags { get; set; }
     }
 }

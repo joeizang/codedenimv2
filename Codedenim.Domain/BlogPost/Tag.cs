@@ -7,7 +7,7 @@ namespace Codedenim.Domain.BlogPost
     {
         public Tag()
         {
-            Posts = new HashSet<Post>();
+            PostTags = new List<PostTags>();
         }
 
         [Key]
@@ -17,6 +17,6 @@ namespace Codedenim.Domain.BlogPost
         [Required]
         public string Name { get; set; }
 
-        public virtual ICollection<Post> Posts { get; set; }
+        public ICollection<PostTags> PostTags { get; set; }
     }
 }

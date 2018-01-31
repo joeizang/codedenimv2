@@ -78,8 +78,18 @@ namespace Codedenim.Web.Data
             // For example, you can rename the ASP.NET Identity table names and more.
             // Add your customizations after calling base.OnModelCreating(builder);
 
-            builder.Entity<Post>()
-                .HasMany(p => p.Tags);
+            builder.Entity<PostTags>()
+                .HasKey(k => new {k.PostId, k.TagId});
+
+            builder.Entity<PostTags>()
+                .HasOne(pt => pt.Post)
+                .WithMany(p => p.PostTags)
+                .HasForeignKey(pt => pt.PostId);
+
+            builder.Entity<PostTags>()
+                .HasOne(pt => pt.Tag)
+                .WithMany(t => t.PostTags)
+                .HasForeignKey(pt => pt.TagId);
         }
 
 
