@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -11,6 +12,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Codedenim.Web.Data;
 using Codedenim.Web.Models;
 using Codedenim.Web.Services;
+using MediatR;
 
 namespace Codedenim.Web
 {
@@ -36,7 +38,10 @@ namespace Codedenim.Web
             // Add application services.
             services.AddTransient<IEmailSender, EmailSender>();
 
-            services.AddMvc();
+            services.AddMvc().AddFeatureFolders();
+
+            services.AddAutoMapper();
+            services.AddMediatR();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
