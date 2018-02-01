@@ -41,7 +41,7 @@ namespace Codedenim.Web
             services.AddMvc().AddFeatureFolders();
 
             services.AddAutoMapper();
-            services.AddMediatR();
+            services.AddMediatR(typeof(Startup));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
